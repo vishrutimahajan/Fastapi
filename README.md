@@ -1,1 +1,1 @@
-A basic CRUD operations wih Python FastAPI and backend of React JS
+A basic CRUD operations wih Python FastAPI and frontend of React JS
