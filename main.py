@@ -3,8 +3,14 @@ from models import Product
 from database import Sessionlocal,engine
 import  database_models
 from sqlalchemy.orm import Session
-app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+)
 database_models.Base.metadata.create_all(bind=engine) #creating all the tables in the database 
 
 @app.get("/")
@@ -52,13 +58,13 @@ def get_product_by_id(id: int,db:Session= Depends(get_db)):
             return db_product
     return {"message": "Product not found"}     
 
-@app.post("/product")
+@app.post("/products")
 def add_product(product: Product, db: Session = Depends(get_db)): #depends is used to get the database session
     db.add(database_models.Product(**product.model_dump()))  #model_dump() is used to convert the pydantic model to a dictionary
     db.commit()
     return product
 
-@app.put("/product")
+@app.put("/products/{id}") #update product
 def update_product(id: int, product: Product, db : Session = Depends(get_db)):
     db_product = db.query(database_models.Product).filter(database_models.Product.id == id).first()  #this will fetch the product with the given id and store it in db_product , filter is used to filter the records based on the condition
     if db_product:
@@ -72,7 +78,7 @@ def update_product(id: int, product: Product, db : Session = Depends(get_db)):
         return {"message": "Product not found"}
 
 
-@app.delete("/product/")
+@app.delete("/products/{id}")
 def delete_product(id: int, db: Session = Depends(get_db)):  
     db_product = db.query(database_models.Product).filter(database_models.Product.id == id).first()  #this will fetch the product with the given id and store it in db_product , filter is used to filter the records based on the condition
     if db_product:
