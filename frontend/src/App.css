@@ -194,3 +194,11 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 /* Responsive form */
 @media (max-width: 1100px) { .product-form { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 600px) { .product-form { grid-template-columns: 1fr; } }
+
+/* Link */
+.link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #070708;
+
+} 

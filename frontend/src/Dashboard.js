@@ -361,10 +361,14 @@ function Dashboard() {
                     )}
                   </tbody>
                 </table>
+               
               </div>
             )}
           </div>
         </div>
+         <div style={{color: "black"}}>
+                 <a href="/login"> logout</a>
+                  </div>
       </div>
     </div>
   );
