@@ -1,0 +1,140 @@
+:root{
+  /* pastel purple gradient colors for button if you use vars */
+  --primary-400: #bfa3ff;
+  --primary-500: #8f63ff;
+
+  /* surface variables if you used them elsewhere */
+  --surface: rgba(255,255,255,0.95);
+  --surface-border: rgba(0,0,0,0.06);
+}
+
+/* full page gradient background */
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  /* keep the page gradient — use visible pastel gradient */
+  background: linear-gradient(135deg, #f3e8ff 0%, #c8b6ff 100%);
+}
+
+/* Floating centered card that contains heading + form */
+.auth-box {
+  background: var(--surface); /* slightly translucent white */
+  border: 1px solid var(--surface-border);
+  width: 400px; /* fixed width so it doesn't fill the screen */
+  height: 400px;
+  max-width: 100%;
+  padding: 36px;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+  text-align: center;
+  box-sizing: border-box;
+  backdrop-filter: blur(6px);
+}
+
+/* Heading inside the card */
+.auth-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: rgb(56, 11, 67);
+  margin: 0 0 18px 0;
+}
+
+/* success / error text */
+.success {
+  color: #196f3d;
+  background: rgba(25,111,61,0.08);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.error {
+  color: #7f1d1d;
+  background: rgba(127,29,29,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* form layout */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* inputs */
+.auth-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e9e6f8;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box;
+  background: #fff;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+.auth-form input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 6px rgba(124,58,237,0.08);
+}
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 18px; /* adds spacing above button */
+  font-size: 14px;
+  color: #706c78;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+} 
+/* button */
+.btn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, var(--primary-400), var(--primary-500));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  transition: transform .12s ease, box-shadow .16s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(143,99,255,0.18);
+}
+
+/* small responsive tweak */
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 20px;
+    width: 92%;
+  }
+  .auth-title {
+    font-size: 20px;
+  }
+}
+.abc-link {
+  margin-top: px;
+  font-size: 14px;
+  color: #706c78;
+}
